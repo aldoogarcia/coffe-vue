@@ -17,6 +17,7 @@
 //proveemos un objeto
 defineProps({
   name:{
+    name:String,
     type:String,
     //default:'Plan sin nombre'
     required:true
