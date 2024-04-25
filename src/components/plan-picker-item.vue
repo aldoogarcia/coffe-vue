@@ -14,7 +14,6 @@
 
 <script setup>
 import { ref } from 'vue';
-
 //funcion especializada integrada en vue no se importa
 //defineProps(['name'])//el array va a tener una lista
 //proveemos un objeto

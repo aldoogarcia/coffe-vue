@@ -3,6 +3,7 @@
       <planPickerItem @selec="(payload)=>{
         console.log(`Se Selecciono : ${payload}`);
       }" 
+      
       v-for="plan in plans" :name="plan" v-bind:key="plan"/>
     </div>
 </template>
