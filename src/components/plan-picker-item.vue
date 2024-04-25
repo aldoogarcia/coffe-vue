@@ -1,5 +1,5 @@
 <template>
-<div @click="selec()"
+<div @click="selec"
     :class="{'selected-plan' : selected}" class="plan">
         <div class="description">
           <span class="title">
@@ -18,11 +18,9 @@ import { ref } from 'vue';
 //funcion especializada integrada en vue no se importa
 //defineProps(['name'])//el array va a tener una lista
 //proveemos un objeto
-const selected=ref(false);
-const selec = ()=>{
-  selected.value=true;
-}
-defineProps({
+//creando Eventos
+const emit=defineEmits(['selec']);
+const props=defineProps({
   name:{
     name:String,
     type:String,
@@ -30,6 +28,14 @@ defineProps({
     required:true
   }
 })
+const selected=ref(false);
+const selec = ()=>{
+  selected.value=true;
+  //detonando el evento
+  emit('selec',props.name);
+}
+
+
 
 </script>
 
