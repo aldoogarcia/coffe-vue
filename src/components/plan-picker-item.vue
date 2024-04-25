@@ -1,8 +1,9 @@
 <template>
-<div class="plan">
+<div @click="selec()"
+    :class="{'selected-plan' : selected}" class="plan">
         <div class="description">
           <span class="title">
-            {{ name }}
+            {{ name }}{{ selected ? " ✅":"" }}
           </span>
         </div>
         <div>
@@ -12,9 +13,15 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 //funcion especializada integrada en vue no se importa
 //defineProps(['name'])//el array va a tener una lista
 //proveemos un objeto
+const selected=ref(false);
+const selec = ()=>{
+  selected.value=true;
+}
 defineProps({
   name:{
     name:String,
@@ -26,7 +33,11 @@ defineProps({
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.selected-plan{
+  border:3px solid red;
+
+}
 
 
 </style>
